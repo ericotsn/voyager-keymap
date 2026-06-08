@@ -28,14 +28,14 @@ enum keycode_aliases {
 
     // Home row modifiers for _BASE layer
     HM_A = LGUI_T(KC_A),
-    HM_R = LALT_T(KC_R),
-    HM_S = LSFT_T(KC_S),
-    HM_T = LCTL_T(KC_T),
+    HM_S = LALT_T(KC_S),
+    HM_D = LSFT_T(KC_D),
+    HM_F = LCTL_T(KC_F),
 
-    HM_N = RCTL_T(KC_N),
-    HM_E = RSFT_T(KC_E),
-    HM_I = RALT_T(KC_I),
-    HM_O = RGUI_T(KC_O),
+    HM_J    = RCTL_T(KC_J),
+    HM_K    = RSFT_T(KC_K),
+    HM_L    = RALT_T(KC_L),
+    HM_QUOT = RGUI_T(KC_QUOT),
 
     // Home row modifiers for _SYM layer
     HM_EQL  = LCTL_T(KC_EQL),
@@ -64,9 +64,9 @@ enum keycode_aliases {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, TG(_GAME),
-        _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,    KC_UNDS, _______,
-        _______, HM_A,    HM_R,    HM_S,    HM_T,    KC_G,                         KC_M,    HM_N,    HM_E,    HM_I,    HM_O,    _______,
-        _______, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_QUOT, _______,
+        _______, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
+        _______, HM_A,    HM_S,    HM_D,    HM_F,    KC_G,                         KC_H,    HM_J,    HM_K,    HM_L,    HM_QUOT, _______,
+        _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UNDS, _______,
                                                      LA_EXT,  KC_SPC,     OS_LSFT, LA_SYM
     ),
     [_GAME] = LAYOUT(
@@ -78,9 +78,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_SYM] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
-        _______, KC_GRV,  KC_LABK, KC_RABK, KC_MINS, KC_PIPE,                      KC_CIRC, KC_LCBR, KC_RCBR, KC_DLR,  KC_UNDS, _______,
+        _______, KC_GRV,  KC_LABK, KC_RABK, KC_MINS, KC_PIPE,                      KC_CIRC, KC_LCBR, KC_RCBR, KC_DLR,  KC_QUOT, _______,
         _______, HM_EXLM, HM_ASTR, HM_SLSH, HM_EQL,  KC_AMPR,                      KC_HASH, HM_LPRN, HM_RPRN, HM_SCLN, HM_DQUO, _______,
-        _______, KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC,                      KC_AT,   KC_COLN, KC_COMM, KC_DOT,  KC_QUOT, _______,
+        _______, KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC,                      KC_AT,   KC_COLN, KC_COMM, KC_DOT,  KC_UNDS, _______,
                                                      _______, _______,    _______, _______
     ),
     [_EXT] = LAYOUT(
