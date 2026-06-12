@@ -40,13 +40,13 @@ enum keycode_aliases {
     // Home row modifiers for _SYM layer
     HM_EQL  = LCTL_T(KC_EQL),
     HM_SLSH = LSFT_T(KC_SLSH),
-    HM_ASTR = LALT_T(KC_8), // Tap => *
-    HM_EXLM = LGUI_T(KC_1), // Tap => !
+    HM_ASTR = LALT_T(KC_F24), // Tap => *
+    HM_EXLM = LGUI_T(KC_F23), // Tap => !
 
-    HM_LPRN = RCTL_T(KC_9), // Tap => (
-    HM_RPRN = RSFT_T(KC_0), // Tap => )
+    HM_LPRN = RCTL_T(KC_F22), // Tap => (
+    HM_RPRN = RSFT_T(KC_F21), // Tap => )
     HM_SCLN = RALT_T(KC_SCLN),
-    HM_DQUO = RGUI_T(KC_QUOT), // Tap => "
+    HM_DQUO = RGUI_T(KC_F20), // Tap => "
 
     // Home row modifiers for _NUM layer
     HM_F4  = LCTL_T(KC_F4),
