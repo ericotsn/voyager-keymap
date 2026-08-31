@@ -16,7 +16,6 @@ enum custom_keycodes {
     OS_PSTE,
     OS_CUT,
     OS_UNDO,
-    IDEOPEN,
 };
 
 enum keycode_aliases {
@@ -87,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
         _______, CW_TOGG, _______, PRV_TAB, NXT_TAB, KC_VOLU,                      KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_DEL,  _______,
         _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_VOLD,                      KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC, _______,
-        _______, OS_UNDO, OS_CUT,  OS_COPY, OS_PSTE, KC_MPLY,                      KC_INS,  KC_ESC,  KC_TAB,  IDEOPEN, KC_ENT,  _______,
+        _______, OS_UNDO, OS_CUT,  OS_COPY, OS_PSTE, KC_MPLY,                      KC_INS,  KC_ESC,  KC_TAB,  _______, KC_ENT,  _______,
                                                      _______, _______,    _______, _______
     ),
     [_NUM] = LAYOUT(
@@ -271,25 +270,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_os_mod(G(KC_Z), C(KC_Z));
             }
             return false;
-
-        case IDEOPEN:
-            if (record->event.pressed) {
-                switch (detected_host_os()) {
-                    case OS_MACOS:
-                    case OS_IOS:
-                        tap_code16(G(KC_P)); // "Quick Open" in VS Code
-                        return false;
-                    case OS_WINDOWS:
-                    case OS_LINUX:
-                    case OS_UNSURE:
-                    default:
-                        tap_code(KC_LSFT);
-                        tap_code(KC_LSFT); // "Search Everywhere" in JetBrains products
-                        return false;
-                }
-            }
-
-            return true;
     }
 
     return true;
