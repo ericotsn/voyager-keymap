@@ -45,14 +45,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_GRV,  KC_LABK, KC_RABK, KC_MINS, KC_PIPE,                      KC_CIRC, KC_LCBR, KC_RCBR, KC_DLR,  _______, _______,
         _______, KC_EXLM, KC_ASTR, KC_SLSH, KC_EQL,  KC_AMPR,                      KC_HASH, KC_LPRN, KC_RPRN, KC_SCLN, KC_DQUO, _______,
         _______, KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC,                      KC_AT,   KC_COLN, KC_COMM, KC_DOT,  _______, _______,
-                                                     KC_UNDS, _______,    _______, XXXXXXX
+                                                     KC_UNDS, _______,    _______, _______
     ),
     [EXT] = LAYOUT(
         _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
         _______, KC_MPLY, KC_MPRV, KC_MNXT, KC_MSTP, KC_VOLU,                      KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_DEL,  KC_F12,
         _______, OS_LGUI, OS_LALT, OS_LSFT, OS_LCTL, KC_VOLD,                      KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC, _______,
         _______, OS_UNDO, OS_CUT,  OS_COPY, OS_PSTE, KC_MUTE,                      _______, KC_TAB,  PRV_TAB, NXT_TAB, KC_ENT,  _______,
-                                                     XXXXXXX, _______,    _______, KC_ESC
+                                                     _______, _______,    _______, KC_ESC
     ),
 };
 // clang-format on
@@ -82,8 +82,8 @@ void keyboard_post_init_user(void) {
     rgb_matrix_sethsv_noeeprom(HSV_WHITE);
 }
 
-static uint16_t tap_primary_mod(uint16_t keycode) {
-    return detected_host_os() == OS_MACOS ? G(keycode) : C(keycode);
+static void tap_primary_mod(uint16_t keycode) {
+    tap_code16(detected_host_os() == OS_MACOS ? G(keycode) : C(keycode));
 }
 
 static bool process_os_shortcuts(uint16_t keycode, keyrecord_t *record) {
